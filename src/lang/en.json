@@ -1,0 +1,14 @@
+{
+    "app_name": "Vue Gallery + Unsplash",
+    "albums_legth": "Number of albums displayed",
+    "sorting_methods": "Sorting methods",
+    "author_text": "Author",
+    "no_photos_text": "Number of photos",
+    "id_album_text": "Album ID",
+    "photos":" 0 photos | 1  photo | {count} photos",
+    "swipe_text":"Swipe left/right on this area to change slide"
+
+
+
+
+}
