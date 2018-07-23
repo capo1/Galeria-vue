@@ -24,9 +24,7 @@
           <button @click="sortOnClick" type="button" name="photos" class="btn btn-light">{{ $t('no_photos_text') }}</button>
           <button @click="sortOnClick" type="button" name="id" class="btn btn-light">{{ $t('id_album_text') }}</button>
         </p>
-      </div>
-  
-  
+      </div>  
     </div>
     <div class="row">
       <clazy-load class="wrapper col caption_hover" v-for="(img, index) in images" :src="'https://unsplash.it/500?image='+img.photos[0].id" :key="index">
@@ -197,7 +195,6 @@ const computed = {
 };
 const watch = {
   getAlbumList(newCount, oldCount) {
-    // Our fancy notification (2).
     console.log(`We have ${newCount} fruits now, yaay!`);
   },
   deep: true
