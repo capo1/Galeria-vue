@@ -7,7 +7,9 @@ import App from './App'
 import router from './router'
 import store from './store/'
 
-import { i18n } from '@/plugins/i18n.js'
+import {
+    i18n
+} from '@/plugins/i18n.js'
 
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -28,8 +30,6 @@ Vue.use(VueClazyLoad)
 Vue.use(VueCarousel)
 Vue.use(polishdeclinationnumbers)
 
-
-
 Vue.config.productionTip = false
 
 
@@ -40,7 +40,9 @@ new Vue({
     store,
     i18n,
     template: '<App/>',
-    components: { App },
+    components: {
+        App
+    },
     methods: {},
     render: h => h(App)
 })

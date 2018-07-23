@@ -1,4 +1,6 @@
-import { Trans } from '@/plugins/Translation'
+import {
+    Trans
+} from '@/plugins/Translation'
 
 function load(component) {
     // '@' is aliased to src/components
@@ -41,7 +43,7 @@ export default [{
         // Redirect user to supported lang version.
         path: '*',
         redirect() {
-            return Trans.getUserSupportedLang()+'/'
+            return Trans.getUserSupportedLang() + '/'
         }
     }
 

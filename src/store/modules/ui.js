@@ -13,7 +13,9 @@ const getters = {
 
 // actions
 const actions = {
-    toggleSidebar({ commit }) {
+    toggleSidebar({
+        commit
+    }) {
         commit(types.TOGGLE_SIDEBAR)
     }
 }

@@ -5,9 +5,9 @@
     "author_text": "Autor",
     "no_photos_text": "Ilość zdjęć",
     "id_album_text": "ID Albumu",
-    "photos":" 0 zdjęć | 1  zdjęcie | {count} zdjęć",
-    "swipe_text":"Przesuń palcem w lewo / prawo w tym obszarze, aby zmienić slajd",
-    "swipe_me":"Przesuń mnie tutaj"
+    "photos": " 0 zdjęć | 1  zdjęcie | {count} zdjęć",
+    "swipe_text": "Przesuń palcem w lewo / prawo w tym obszarze, aby zmienić slajd",
+    "swipe_me": "Przesuń mnie tutaj"
 
 
 

@@ -25,20 +25,16 @@ export default {
       const toDepth = to.path.split("/").length;
       const fromDepth = from.path.split("/").length;
 
-      console.log(to.path.split("/"))
-
       let cnt = document.querySelector(".mask");
 
       if (typeof cnt != null) {
-
-        let a = to.path.split("/")
-      
-        cnt.dataset.data = a[a.length-2]+" "+a[a.length-1]
-
-      this.transitionName = toDepth < fromDepth ? "reveal-reverse" : "reveal";
+        let a = to.path.split("/");
+        cnt.dataset.data = a[a.length - 2] + " " + a[a.length - 1];
+        this.transitionName = toDepth < fromDepth ? "reveal-reverse" : "reveal";
+      }
     }
   }
-}}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -48,7 +48,9 @@ const getters = {
 // actions
 const actions = {
 
-    initialAlbums({ commit }) {
+    initialAlbums({
+        commit
+    }) {
 
         axios
             .get(albumConst.LINK)
@@ -69,7 +71,9 @@ const actions = {
             });
 
     },
-    setAlbumLimit({ commit }, limit) {
+    setAlbumLimit({
+        commit
+    }, limit) {
 
         commit(types.CHANGE_ALBUM_LENGTH, limit)
         commit(types.COMPUTE_LIST_AUTHOR)
@@ -77,7 +81,9 @@ const actions = {
 
     },
 
-    sortAlbums({ commit }, sort) {
+    sortAlbums({
+        commit
+    }, sort) {
 
         commit(types.SET_SORT_PARAMETERS, sort)
 

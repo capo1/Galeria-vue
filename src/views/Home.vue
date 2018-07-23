@@ -8,13 +8,13 @@
 </template>
 
 <script>
-  // @ is an alias to /src
-  import Albums from '@/components/Albums.vue'
-  
-  export default {
-    name: 'home',
-    components: {
-      Albums
-    }
+// @ is an alias to /src
+import Albums from "@/components/Albums.vue";
+
+export default {
+  name: "home",
+  components: {
+    Albums
   }
+};
 </script>

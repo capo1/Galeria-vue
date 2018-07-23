@@ -44,9 +44,7 @@ export default {
 
   computed: {
     open() {
-     
-     return this.$store.state.ui.sidebarOpen;
-     
+      return this.$store.state.ui.sidebarOpen;
     }
   },
 
@@ -70,8 +68,8 @@ export default {
   padding: 30px;
   height: 100vh;
   max-width: 90vw;
-  background-color: $dark_color;
-  color: $light_color;
+  background-color: darken($dark_color, 15%);
+  color: darken($light_color, 15%);
   z-index: 102;
 }
 </style>

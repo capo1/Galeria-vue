@@ -33,143 +33,146 @@
 </template>
 
 <script>
+import Sidebar from "@/components/Sidebar/Sidebar.vue";
+import SidebarToggle from "@/components/Sidebar/SidebarToggle.vue";
+import TheLanguageSwitcher from "@/components/TheLanguageSwitcher";
+import { mapActions } from "vuex";
 
-  import Sidebar from '@/components/Sidebar/Sidebar.vue'
-  import SidebarToggle from '@/components/Sidebar/SidebarToggle.vue'
-  import TheLanguageSwitcher from '@/components/TheLanguageSwitcher'
-  import { mapActions } from 'vuex'
+const ImageListParent = [];
 
-  const ImageListParent = [];
-    
-  export default {
-    name: "app",
-    inherit: true,
-     created() {
+export default {
+  name: "app",
+  inherit: true,
+  created() {
     // ...mapActions(['initialAlbums']);
 
-    console.log(this)
+    console.log(this);
 
-
-    this.$store.dispatch('initialAlbums')
-    },
-    components: {
-      Sidebar,
-      SidebarToggle,
-      TheLanguageSwitcher
-    }
-  };
+    this.$store.dispatch("initialAlbums");
+  },
+  components: {
+    Sidebar,
+    SidebarToggle,
+    TheLanguageSwitcher
+  }
+};
 </script>
 
 <style lang="scss">
-  @import url("https://fonts.googleapis.com/css?family=Anton|Libre+Baskerville:400,700&amp;subset=latin-ext");
-   :root {}
+@import url("https://fonts.googleapis.com/css?family=Anton|Libre+Baskerville:400,700&amp;subset=latin-ext");
+:root {
+}
 
-  * {
-    box-sizing: border-box;
-  }
+* {
+  box-sizing: border-box;
+}
+.jumbotron {
+  margin-top:15px!important;
+  background: darken($primary_color, 10%) !important;
+}
+body {
+  background-color: $primary_color !important;
+  margin: 0;
+}
 
-  body {
-    background-color: $primary_color!important;
-    margin: 0;
-  }
+h1,
+h2,
+h3 {
+  font-family: $font_family_serif;
+}
 
-  h1,
-  h2,
-  h3 {
-    font-family: $font_family_serif
-  }
+.justify_flex {
+  justify-items: center;
+  align-items: center;
+}
 
-  
-  .justify_flex {
-    justify-items: center;
-    align-items: center;
-  }
+#app {
+  font-family: $font_family_sans_serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $dark_color;
+}
 
-  #app {
-    font-family: $font_family_sans_serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: $dark_color;
-  }
+main {
+  text-align: center;
+}
 
-  main {
-    text-align: center;
-  }
+.preloader {
+  position: absolute;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: all 100ms ease-in;
+}
 
-  .preloader {
-    position: absolute;
-    width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100%;
-    left: 0;
-    top: 0;
-    transition: all 100ms ease-in;
-  }
+.loader {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: $light_color;
+  overflow: hidden;
+  max-width: 291px;
+  margin: auto;
+}
 
-  .loader {
-    position: relative;
-    width: 100%;
-    height: 4px;
-    background-color: $light_color;
-    overflow: hidden;
-    max-width: 291px;
-    margin: auto;
-  }
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  border-radius: 4px;
+  z-index: 2;
+}
 
-  .loader::before,
-  .loader::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+.loader::before {
+  background: $gray;
+  animation: animation_bar1 1.2s linear infinite;
+}
+
+.loader::after {
+  background: $accent_color;
+  animation: animation_bar1 1.2s 0.5s linear infinite;
+}
+.btn {
+  margin-bottom: 15px;
+}
+@keyframes animation_bar1 {
+  0% {
     width: 0;
-    height: 4px;
-    border-radius: 4px;
-    z-index: 2;
   }
+  25% {
+    width: 30%;
+    left: 15%;
+  }
+  50% {
+    width: 70%;
+    left: 40%;
+  }
+  100% {
+    width: 15%;
+    left: 100%;
+  }
+}
 
-  .loader::before {
-    background: $gray;
-    animation: animation_bar1 1.2s linear infinite;
+@keyframes animation_bar2 {
+  0% {
+    width: 0;
   }
-
-  .loader::after {
-    background: $accent_color;
-    animation: animation_bar1 1.2s 0.5s linear infinite;
+  50% {
+    width: 60%;
+    left: 40%;
   }
-.btn {margin-bottom:15px;}
-  @keyframes animation_bar1 {
-    0% {
-      width: 0;
-    }
-    25% {
-      width: 30%;
-      left: 15%;
-    }
-    50% {
-      width: 70%;
-      left: 40%;
-    }
-    100% {
-      width: 15%;
-      left: 100%;
-    }
+  100% {
+    width: 20%;
+    left: 100%;
   }
-
-  @keyframes animation_bar2 {
-    0% {
-      width: 0;
-    }
-    50% {
-      width: 60%;
-      left: 40%;
-    }
-    100% {
-      width: 20%;
-      left: 100%;
-    }
-  }
+}
 </style>
 

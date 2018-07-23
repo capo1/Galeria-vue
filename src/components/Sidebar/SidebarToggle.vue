@@ -9,64 +9,64 @@
 </template>
 
 <script>
-  export default {
-    name: 'sidebar-toggle',
-    computed: {
-      open() {
-        return this.$store.state.ui.sidebarOpen
-      }
-    },
-    methods: {
-      toggleSidebar() {
-        this.$store.dispatch('toggleSidebar')
-      }
+export default {
+  name: "sidebar-toggle",
+  computed: {
+    open() {
+      return this.$store.state.ui.sidebarOpen;
+    }
+  },
+  methods: {
+    toggleSidebar() {
+      this.$store.dispatch("toggleSidebar");
     }
   }
+};
 </script>
 
 <style module lang="scss">
-  .button_menu {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    padding: 0;
-    height: 50px;
-    width: 50px;
-    border: 1px solid transparent;
-    border-radius: 50%;
-    background-color: transparent;
-   color: $light_color;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 0;
-    z-index: 103;
-   box-shadow:0 0 5px $light_color;
-    transition: transform 300ms ease-out, border-color 300ms ease-out;
-  }
+.button_menu {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0;
+  height: 50px;
+  width: 50px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: transparent;
+  color: $light_color;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  z-index: 103;
+  box-shadow: 0 0 5px $light_color;
+  transition: transform 300ms ease-out, border-color 300ms ease-out;
+}
 
-  .button_menu svg {
-    height: 100%;
-    width: 100%;
-    fill: $dark_color;
-    transition: fill 300ms ease-out;
-  }
+.button_menu svg {
+  height: 100%;
+  width: 100%;
+  fill: $dark_color;
+  transition: fill 300ms ease-out;
+}
 
-  .button_menu:focus {
-    outline: none;
-    border-color: $dark_color;
-  }
+.button_menu:focus {
+  outline: none;
+  border-color: $dark_color;
+}
 
-  .active {
-    transform: rotate(45deg);
-  }
+.active {
+  transform: rotate(45deg);
+}
 
-  .active svg {
-   fill: $light_color;
-  }
+.active svg {
+  fill: $light_color;
+}
 
-  .active:focus {
-   border-color:  $light_color;
-  }
+.active:focus {
+  border-color: $light_color;
+}
 </style>

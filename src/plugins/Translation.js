@@ -1,6 +1,11 @@
 import axios from 'axios'
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '@/constants/trans'
-import { i18n } from '@/plugins/i18n'
+import {
+    SUPPORTED_LANGUAGES,
+    DEFAULT_LANGUAGE
+} from '@/constants/trans'
+import {
+    i18n
+} from '@/plugins/i18n'
 
 const Trans = {
     get defaultLanguage() {
@@ -97,4 +102,6 @@ const Trans = {
     }
 }
 
-export { Trans }
+export {
+    Trans
+}
