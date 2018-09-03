@@ -23,3 +23,9 @@
 .list-group-item {
     background: transparent!important
 }
+
+.overCaption {
+    background: $accent_color;
+    color: $light_color;
+    padding: 3px;
+}

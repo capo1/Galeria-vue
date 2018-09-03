@@ -1,13 +1,18 @@
 {
     "app_name": "Galeria Vue + Unsplash",
+    "author_text_by": "Napisana przez ",
     "albums_legth": "Ilość wyświetlanych albumów",
+    "albumList": "Lista albumów",
     "sorting_methods": "Metody sortowania",
     "author_text": "Autor",
     "no_photos_text": "Ilość zdjęć",
     "id_album_text": "ID Albumu",
     "photos": " 0 zdjęć | 1  zdjęcie | {count} zdjęć",
     "swipe_text": "Przesuń palcem w lewo / prawo w tym obszarze, aby zmienić slajd",
-    "swipe_me": "Przesuń mnie tutaj"
+    "swipe_me": "Przesuń mnie tutaj",
+    "aboute_gallery": "O Galerii",
+    "aboute_gallery_shortText": "<p>Galeria powstała jako zadanie rekrutacyjne.</p> <p> Napisana została z użyciem Vue + webpack. Wykorzystuje zdjęcia z unsplash 'a.</p> <p> Użyte biblioteki: </p>",
+    "used_library": "<li class=\"list-group-item\">Vue.js, Vue - Reute, Vue - Store, Vue - Vuex, I18n</li> <li class=\"list-group-item\">Sass</li> <li class=\"list-group-item\">Bootstrap</li><li class=\"list-group-item\">axios.js dla Vue</li><li class=\"list-group-item\">TweenMax.js dla Vue</li>"
 
 
 

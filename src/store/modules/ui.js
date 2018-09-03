@@ -8,6 +8,7 @@ const state = {
 
 // getters
 const getters = {
+
     sidebarOpen: state => state.sidebarOpen
 }
 

@@ -36,19 +36,15 @@
 import Sidebar from "@/components/Sidebar/Sidebar.vue";
 import SidebarToggle from "@/components/Sidebar/SidebarToggle.vue";
 import TheLanguageSwitcher from "@/components/TheLanguageSwitcher";
-import { mapActions } from "vuex";
 
-const ImageListParent = [];
+
 
 export default {
   name: "app",
   inherit: true,
-  created() {
-    // ...mapActions(['initialAlbums']);
+  beforeCreate() {
 
-    console.log(this);
-
-    this.$store.dispatch("initialAlbums");
+this.$store.dispatch("initialAlbums");
   },
   components: {
     Sidebar,

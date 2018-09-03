@@ -1,5 +1,3 @@
-Vue.config.productionTip = false
-
 import Vue from 'vue'
 import App from './App'
 
@@ -15,8 +13,6 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import axios from 'axios'
-
 import './sass/index.scss'
 import VueClazyLoad from 'vue-clazy-load'
 import VueCarousel from 'vue-carousel'
@@ -24,7 +20,7 @@ import polishdeclinationnumbers from '@/plugins/misc/PolishDeclinationsNumbers'
 import './registerServiceWorker'
 
 
-Vue.use(axios)
+//Vue.use(axios)
 Vue.use(BootstrapVue)
 Vue.use(VueClazyLoad)
 Vue.use(VueCarousel)

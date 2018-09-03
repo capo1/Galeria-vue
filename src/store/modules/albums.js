@@ -35,33 +35,37 @@ const getters = {
     getSortOrder: state => state.sortOptions.sortOrder[Number(state.sortOptions.ascSorting)],
     getSortBy: state => state.sortOptions.sortBy,
 
+    getStateLoading: state => state.loading,
+
     getOneAlbumByID: state => (id) => {
 
-        const a = state.savedList.filter(function(obj) {
+        return state.savedList.filter(function(obj) {
             return obj.author == id ? obj : null
-        })
-        console.log(a)
-        return a
+        });
+
     }
 }
 
 // actions
 const actions = {
 
-    initialAlbums({
-        commit
-    }) {
-
+    initialAlbums({ commit }) {
         axios
             .get(albumConst.LINK)
             .then(
                 function(response) {
 
                     commit(types.UPDATE_ALBUMS, response.data)
-                    commit(types.COMPUTE_LIST_AUTHOR)
-                    commit(types.CHANGE_LOADING_STATE)
-                    commit(types.COMPUTE_LIST_AUTHOR1)
+
+
+
+                    commit(types.COMPUTE_LIST_FROM_SERVER);
+
+                    commit(types.COMPUTE_LIST_FOR_APP);
+
                     commit(types.ORDER_BY_KEY, state.sortOptions.sortBy)
+
+                    commit(types.CHANGE_LOADING_STATE)
 
                 }.bind(this)
             )
@@ -71,19 +75,14 @@ const actions = {
             });
 
     },
-    setAlbumLimit({
-        commit
-    }, limit) {
+    setAlbumLimit({ commit }, limit) {
 
-        commit(types.CHANGE_ALBUM_LENGTH, limit)
-        commit(types.COMPUTE_LIST_AUTHOR)
-        commit(types.ORDER_BY_KEY, state.sortOptions.sortBy)
+        commit(types.CHANGE_ALBUM_LENGTH, limit);
+        commit(types.COMPUTE_LIST_FOR_APP);
+        commit(types.ORDER_BY_KEY, state.sortOptions.sortBy);
 
     },
-
-    sortAlbums({
-        commit
-    }, sort) {
+    sortAlbums({ commit }, sort) {
 
         commit(types.SET_SORT_PARAMETERS, sort)
 
@@ -102,10 +101,10 @@ const actions = {
 const mutations = {
     [types.CHANGE_LOADING_STATE](state) {
         state.loading = !state.loading
+
     },
     [types.UPDATE_ALBUMS](state, albums) {
 
-        state.albums.list = albums
         state.savedList = albums
     },
     [types.CHANGE_ALBUM_LENGTH](state, limit) {
@@ -122,16 +121,16 @@ const mutations = {
     },
     [types.ORDER_BY_KEY](state, sort) {
 
-        const list = [...state.albums.list]
+        const list = [...state.albums.list];
 
         list.sort((a, b) => a[sort].localeCompare(b[sort], undefined, {
             numeric: true
         }));
 
         if (state.sortOptions.getSortOrder == 'desc') {
-            list.reverse()
+            list.reverse();
         }
-        state.albums.list = list
+        state.albums.list = list;
     },
 
     [types.ORDER_BY_LENGTH](state, sort) {
@@ -143,14 +142,14 @@ const mutations = {
         });
 
         if (state.sortOptions.getSortOrder == 'desc') {
-            list.reverse()
+            list.reverse();
         }
-        state.albums.list = list
+        state.albums.list = list;
     },
-    [types.COMPUTE_LIST_AUTHOR](state) {
+    [types.COMPUTE_LIST_FOR_APP](state) {
 
         const result = [];
-        let i = 1,
+        let i = 0,
             BreakException = {},
             list = state.savedList,
             le = state.albums.limit
@@ -159,22 +158,20 @@ const mutations = {
             list.forEach(
                 (function(hash) {
                     return function(a) {
+
                         if (!hash[a.author]) {
 
-                            if (i > le) throw BreakException;
+                            if (i >= le) throw BreakException;
                             i++;
 
                             hash[a.author] = {
                                 author: a.author,
                                 id: String(i),
-                                photos: []
+                                photos: a.photos
                             };
 
                             result.push(hash[a.author]);
                         }
-                        hash[a.author].photos.push({
-                            id: a.id
-                        });
                     };
                 })(Object.create(null))
             );
@@ -183,15 +180,15 @@ const mutations = {
 
         } catch (e) {
 
-            state.albums.list = result
+            state.albums.list = result;
 
             if (e !== BreakException) throw e;
         }
     },
-    [types.COMPUTE_LIST_AUTHOR1](state) {
+    [types.COMPUTE_LIST_FROM_SERVER](state) {
 
         const result = [];
-        let i = 1,
+        let i = 0,
             BreakException = {},
             list = state.savedList
         try {
@@ -220,8 +217,6 @@ const mutations = {
             state.savedList = result
 
         } catch (e) {
-
-            state.savedList = result
 
             if (e !== BreakException) throw e;
         }

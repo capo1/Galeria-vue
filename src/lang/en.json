@@ -7,7 +7,10 @@
     "id_album_text": "Album ID",
     "photos": " 0 photos | 1  photo | {count} photos",
     "swipe_text": "Swipe left/right on this area to change slide",
-    "swipe_me": "Swipe me here"
+    "swipe_me": "Swipe me here",
+    "aboute_gallery": "About gallery",
+    "aboute_gallery_shortText": "<p>The gallery was created as a recruitment task.</p> <p>It was written using the Vue + webpack. Uses images from unsplash.</p> <p> Used libraries: </p>",
+    "used_library": "<li class=\"list-group-item\">Vue.js, Vue - Reute, Vue - Store, Vue - Vuex, I18n</li> <li class=\"list-group-item\">Sass</li> <li class=\"list-group-item\">Bootstrap</li><li class=\"list-group-item\">axios.js for Vue</li><li class=\"list-group-item\">TweenMax.js for Vue</li>"
 
 
 
